@@ -1,28 +1,55 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 24 15:55:18 2021
 
-class input:
+@author: Alfy Benny
+"""
+
+import numpy as np
+from abc import ABC, abstractmethod
+
+file = "test.xyz"
+
+class input_processing:
+    
+    
+    content = []
+    matrix = []
     
     # The filetype could be .xyz, .mol2, .cif etc.
-    def __init__(self, filetype):
-        self.filetype = filetype
+    def __init__(self, file):
+       self.file = file
 
-    def readfile(filename):
-        # This could also be a virtual function
-        # NOTE: To use the attribute defined above (constructor), we can use self.filetype here
-        # Read the filename with corresponding filetype attribute
-        # Do something with the read matrix based on the filetype attribute
-        # Retuen the atom list and coordinates
+    def readfile(self):
+        # Reading file contents
+        self.content = open(file, 'r')
+        return self.content
+        
+   
+    # Abstract class for getting coordiantes from the read file
+    @abstractmethod
+    def extract_coordinate(self):
         pass
 
-class xyz(input):
+# SUBCLASS-INPUT_PROCESSING==========================================
+# Get coordinates from file for .xyz fileformat
+# NOTE: class xyz knows what is content
+class xyz(input_processing):
+    def extract_coordinate(self):
+        # SOURCE: https://stackoverflow.com/questions/7618858/how-to-to-read-a-matrix-from-a-given-file
+        with self.content as f:
+            self.matrix = [[str(num) for num in line.split('\n')] for line in f if line.strip() != " "]
+            return self.matrix
+        return self.matrix
 
-    # Check if input is xyz
-    # If yes, proceed with the function
+# Get coordinates from file for .mol2 fileformat
+class mol2(input_processing):
+    def readfile(self):
+        print("mol2")
 
-    def readfile(filename):
-        # Extract date
-
-class mol2(input):
-
-
-class cif(input):
+# Get coordinates from file for .cif fileformat
+class cif(input_processing):
+    def readfile(self):
+        print("cif")
+        
 
