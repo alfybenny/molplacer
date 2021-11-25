@@ -13,4 +13,4 @@ file1 = input.xyz(file)
 file1.readfile()
 M = file1.extract_coordinate()
 
-print(M[2])
+print(M)
