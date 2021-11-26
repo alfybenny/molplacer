@@ -5,12 +5,14 @@ Created on Wed Nov 24 15:55:18 2021
 @author: Alfy Benny
 """
 
-import input
 
-file = "test.xyz"
+def translate(A, vec):
+    B = A.__add__(vec)
+    return B
 
-file1 = input.xyz(file)
-file1.readfile()
-M = file1.extract_coordinate()
+def rotate(A, vec):
+    print("not working for now")
 
-print(M)
+
+
+
