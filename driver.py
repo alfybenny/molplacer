@@ -49,6 +49,8 @@ translate_vec = scale[0]*(unit_vec_x) + scale[1]*(unit_vec_y) + scale[2]*(unit_v
 coor_2 = transform.translate(coor_1, translate_vec)
 coor_3 = transform.molecule_rotate(coor_2, rotate)
 
+output.plot_molecule(coor_1, coor_3)
+
 molecule_1.readfile()
 atom_list = molecule_1.get_atom_list()
 
@@ -58,4 +60,5 @@ output.out_xyz(file_name, atom_list, coor_3)
 
 
 output.combine_files(file, file_name, 'combined.xyz')
+
 
