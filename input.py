@@ -8,7 +8,7 @@ import numpy as np
 from abc import abstractmethod
 import re
 
-file = "test.xyz"
+
 
 class input_processing:
     
@@ -24,7 +24,7 @@ class input_processing:
 
     # read the input file
     def readfile(self):
-        self.content = open(file, 'r')
+        self.content = open(self.file, 'r')
         return self.content
          
     # Abstract class: Outputs attribute 'matrix'

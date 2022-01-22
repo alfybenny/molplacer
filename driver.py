@@ -12,7 +12,7 @@ import output
 import argparse
 
 parser = argparse.ArgumentParser(description = 'Arguments for defining the coefficients')
-# parser.add_argument('file1', type = str, help = 'File containing eigenvectors for freq1')
+parser.add_argument('file', type = str, help = 'File containing eigenvectors for freq1')
 # parser.add_argument('file1', type = str, help = 'File containing eigenvectors for freq1')
 parser.add_argument('x_choice1', type = int, help = 'atom indices for defining x axis')
 parser.add_argument('x_choice2', type = int, help = 'atom indices for defining x axis')
@@ -32,7 +32,7 @@ y_choice = [args.y_choice1, args.y_choice2]
 scale = [args.scale_x, args.scale_y, args.scale_z]
 rotate = [args.rotate_x, args.rotate_y, args.rotate_z]
 
-file = "test.xyz"
+file = args.file
 
 # Get 'matrix'
 molecule_1 = input.xyz(file)
